@@ -29,7 +29,7 @@ $group_id = bp_get_current_group_id();
             <?php if ($documents): ?>
                 <ul class="documents-list">
                     <?php foreach ($documents as $document): 
-                        $status = (new BP_OpenAI_PDF_Chat_File_Admin())->get_analysis_status($document->id);
+                        $status = (new BB_OpenAI_PDF_Chat_File_Admin())->get_analysis_status($document->id);
                     ?>
                         <li class="document-item">
                             <label class="document-label">

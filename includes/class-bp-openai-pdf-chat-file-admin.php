@@ -1,5 +1,5 @@
 <?php
-class BP_OpenAI_PDF_Chat_File_Admin {
+class BB_OpenAI_PDF_Chat_File_Admin {
     private $table_name;
     private $base_upload_dir;
     private $max_file_size = 10485760; // 10MB limit
@@ -7,15 +7,15 @@ class BP_OpenAI_PDF_Chat_File_Admin {
 
     public function __construct() {
         global $wpdb;
-        $this->table_name = $wpdb->prefix . 'bp_group_documents';
-        $this->api = new BP_OpenAI_PDF_Chat_API();
+        $this->table_name = $wpdb->prefix . 'bb_group_documents';
+        $this->api = new BB_OpenAI_PDF_Chat_API();
         
         $wp_upload_dir = wp_upload_dir();
         $this->base_upload_dir = $wp_upload_dir['basedir'] . '/group_documents';
     }
 
     public function upload() {
-        check_ajax_referer('bp_openai_pdf_chat', 'nonce');
+        check_ajax_referer('bb_openai_pdf_chat', 'nonce');
 
         if (!isset($_FILES['document']) || !isset($_POST['group_id'])) {
             wp_send_json_error('Missing required parameters');
@@ -169,7 +169,7 @@ class BP_OpenAI_PDF_Chat_File_Admin {
     }
 
     private function extract_text_with_parser($file_path) {
-        require_once BP_OPENAI_PDF_CHAT_PLUGIN_DIR . 'vendor/autoload.php';
+        require_once BB_OPENAI_PDF_CHAT_PLUGIN_DIR . 'vendor/autoload.php';
         $parser = new \Smalot\PdfParser\Parser();
         
         try {

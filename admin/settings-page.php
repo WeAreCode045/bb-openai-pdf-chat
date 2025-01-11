@@ -13,27 +13,27 @@ if (!defined('ABSPATH')) {
         <table class="form-table">
             <tr>
                 <th scope="row">
-                    <label for="bp_openai_pdf_chat_api_key">OpenAI API Key</label>
+                    <label for="bb_openai_pdf_chat_api_key">OpenAI API Key</label>
                 </th>
                 <td>
                     <input type="password" 
-                           id="bp_openai_pdf_chat_api_key" 
-                           name="bp_openai_pdf_chat_api_key" 
-                           value="<?php echo esc_attr(get_option('bp_openai_pdf_chat_api_key')); ?>" 
+                           id="bb_openai_pdf_chat_api_key" 
+                           name="bb_openai_pdf_chat_api_key" 
+                           value="<?php echo esc_attr(get_option('bb_openai_pdf_chat_api_key')); ?>" 
                            class="regular-text">
                 </td>
             </tr>
             <tr>
                 <th scope="row">
-                    <label for="bp_openai_pdf_chat_model">OpenAI Model</label>
+                    <label for="bb_openai_pdf_chat_model">OpenAI Model</label>
                 </th>
                 <td>
-                    <select id="bp_openai_pdf_chat_model" 
-                            name="bp_openai_pdf_chat_model">
-                        <option value="gpt-3.5-turbo" <?php selected(get_option('bp_openai_pdf_chat_model', 'gpt-3.5-turbo'), 'gpt-3.5-turbo'); ?>>
+                    <select id="bb_openai_pdf_chat_model" 
+                            name="bb_openai_pdf_chat_model">
+                        <option value="gpt-3.5-turbo" <?php selected(get_option('bb_openai_pdf_chat_model', 'gpt-3.5-turbo'), 'gpt-3.5-turbo'); ?>>
                             GPT-3.5 Turbo
                         </option>
-                        <option value="gpt-4" <?php selected(get_option('bp_openai_pdf_chat_model'), 'gpt-4'); ?>>
+                        <option value="gpt-4" <?php selected(get_option('bb_openai_pdf_chat_model'), 'gpt-4'); ?>>
                             GPT-4
                         </option>
                     </select>
@@ -41,13 +41,13 @@ if (!defined('ABSPATH')) {
             </tr>
             <tr>
                 <th scope="row">
-                    <label for="bp_openai_pdf_chat_max_tokens">Max Response Tokens</label>
+                    <label for="bb_openai_pdf_chat_max_tokens">Max Response Tokens</label>
                 </th>
                 <td>
                     <input type="number" 
-                           id="bp_openai_pdf_chat_max_tokens" 
-                           name="bp_openai_pdf_chat_max_tokens" 
-                           value="<?php echo esc_attr(get_option('bp_openai_pdf_chat_max_tokens', '500')); ?>" 
+                           id="bb_openai_pdf_chat_max_tokens" 
+                           name="bb_openai_pdf_chat_max_tokens" 
+                           value="<?php echo esc_attr(get_option('bb_openai_pdf_chat_max_tokens', '500')); ?>" 
                            min="1" 
                            max="4000" 
                            class="small-text">

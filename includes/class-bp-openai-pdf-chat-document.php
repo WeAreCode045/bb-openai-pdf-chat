@@ -1,11 +1,11 @@
 <?php
-class BP_OpenAI_PDF_Chat_Document {
+class BB_OpenAI_PDF_Chat_Document {
     private $table_name;
     private $base_upload_dir;
 
     public function __construct() {
         global $wpdb;
-        $this->table_name = $wpdb->prefix . 'bp_group_documents';
+        $this->table_name = $wpdb->prefix . 'bb_group_documents';
         
         $wp_upload_dir = wp_upload_dir();
         $this->base_upload_dir = $wp_upload_dir['basedir'] . '/group_documents';
@@ -34,7 +34,7 @@ class BP_OpenAI_PDF_Chat_Document {
     }
 
     public function get_preview() {
-        check_ajax_referer('bp_openai_pdf_chat', 'nonce');
+        check_ajax_referer('bb_openai_pdf_chat', 'nonce');
 
         if (!isset($_POST['document_id'])) {
             wp_send_json_error('Missing document ID');

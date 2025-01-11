@@ -1,32 +1,31 @@
 <?php
 /**
- * Plugin Name: BuddyPress OpenAI PDF Chat
- * Description: A plugin that allows users to chat with PDF documents using OpenAI in BuddyPress groups
- * Version: 1.0.0
- * Author: Your Name
+ * Plugin Name: OpenAI PDF Chat for BuddyBoss Groups
+ * Description: A plugin that allows members to chat with PDF documents added to a BuddyBoss group
+ * Author: Code045
  * License: GPL v2 or later
  * Requires at least: 5.8
- * Requires PHP: 7.4
+ * Requires PHP: 8.1
  */
 
 if (!defined('ABSPATH')) {
     exit;
 }
 
-define('BP_OPENAI_PDF_CHAT_VERSION', '1.0.0');
-define('BP_OPENAI_PDF_CHAT_DB_VERSION', '1.0.0');
-define('BP_OPENAI_PDF_CHAT_PLUGIN_DIR', plugin_dir_path(__FILE__));
+define('bb_OPENAI_PDF_CHAT_VERSION', '1.0.0');
+define('bb_OPENAI_PDF_CHAT_DB_VERSION', '1.0.0');
+define('bb_OPENAI_PDF_CHAT_PLUGIN_DIR', plugin_dir_path(__FILE__));
 
 // Load custom autoloader
-require_once BP_OPENAI_PDF_CHAT_PLUGIN_DIR . 'includes/autoload.php';
+require_once BB_OPENAI_PDF_CHAT_PLUGIN_DIR . 'includes/autoload.php';
 
 // Load the main plugin class
-require_once BP_OPENAI_PDF_CHAT_PLUGIN_DIR . 'includes/class-bp-openai-pdf-chat.php';
+require_once BB_OPENAI_PDF_CHAT_PLUGIN_DIR . 'includes/class-bb-openai-pdf-chat.php';
 
-function bp_openai_pdf_chat_activate() {
+function bb_openai_pdf_chat_activate() {
     global $wpdb;
     
-    $table_name = $wpdb->prefix . 'bp_group_documents';
+    $table_name = $wpdb->prefix . 'bb_group_documents';
     $charset_collate = $wpdb->get_charset_collate();
 
     $sql = "CREATE TABLE IF NOT EXISTS $table_name (
@@ -70,14 +69,14 @@ function bp_openai_pdf_chat_activate() {
     }
 
     // Store database version
-    add_option('bp_openai_pdf_chat_db_version', BP_OPENAI_PDF_CHAT_DB_VERSION);
+    add_option('bb_openai_pdf_chat_db_version', BB_OPENAI_PDF_CHAT_DB_VERSION);
 }
 
-register_activation_hook(__FILE__, 'bp_openai_pdf_chat_activate');
+register_activation_hook(__FILE__, 'bb_openai_pdf_chat_activate');
 
-function run_bp_openai_pdf_chat() {
-    $plugin = BP_OpenAI_PDF_Chat::get_instance();
+function run_bb_openai_pdf_chat() {
+    $plugin = BB_OpenAI_PDF_Chat::get_instance();
     $plugin->run();
 }
 
-run_bp_openai_pdf_chat();
+run_bb_openai_pdf_chat();

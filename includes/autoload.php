@@ -10,7 +10,7 @@ spl_autoload_register(function ($class) {
 
     // Convert namespace to path
     $path = str_replace('\\', DIRECTORY_SEPARATOR, $class);
-    $path = BP_OPENAI_PDF_CHAT_PLUGIN_DIR . 'vendor' . DIRECTORY_SEPARATOR . 
+    $path = BB_OPENAI_PDF_CHAT_PLUGIN_DIR . 'vendor' . DIRECTORY_SEPARATOR . 
            substr($path, strrpos($class, 'Smalot')) . '.php';
 
     if (file_exists($path)) {

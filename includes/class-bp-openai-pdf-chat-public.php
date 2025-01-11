@@ -2,7 +2,7 @@
 /**
  * The public-facing functionality of the plugin
  */
-class BP_OpenAI_PDF_Chat_Public {
+class BB_OpenAI_PDF_Chat_Public {
     private $plugin_name;
     private $version;
 
@@ -45,9 +45,9 @@ class BP_OpenAI_PDF_Chat_Public {
             true
         );
 
-        wp_localize_script($this->plugin_name, 'bpOpenAIPDFChat', array(
+        wp_localize_script($this->plugin_name, 'bbOpenAIPDFChat', array(
             'ajaxurl' => admin_url('admin-ajax.php'),
-            'nonce' => wp_create_nonce('bp_openai_pdf_chat')
+            'nonce' => wp_create_nonce('bb_openai_pdf_chat')
         ));
     }
 
@@ -68,7 +68,7 @@ class BP_OpenAI_PDF_Chat_Public {
     }
 
     public function display_chat_page() {
-        add_action('bp_template_content', array($this, 'get_chat_template'));
+        add_action('bb_template_content', array($this, 'get_chat_template'));
         bp_core_load_template('buddypress/members/single/plugins');
     }
 
@@ -78,7 +78,7 @@ class BP_OpenAI_PDF_Chat_Public {
         
         // Get documents for current group
         $documents = $wpdb->get_results($wpdb->prepare(
-            "SELECT * FROM {$wpdb->prefix}bp_group_documents 
+            "SELECT * FROM {$wpdb->prefix}bb_group_documents 
             WHERE group_id = %d 
             ORDER BY uploaded_at DESC",
             $group_id

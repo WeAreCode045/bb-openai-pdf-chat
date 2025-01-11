@@ -2,7 +2,7 @@
 /**
  * The admin-specific functionality of the plugin
  */
-class BP_OpenAI_PDF_Chat_Admin {
+class BB_OpenAI_PDF_Chat_Admin {
     private $plugin_name;
     private $version;
 
@@ -41,11 +41,11 @@ class BP_OpenAI_PDF_Chat_Admin {
     }
 
     public function register_settings() {
-        register_setting($this->plugin_name, 'bp_openai_pdf_chat_api_key');
-        register_setting($this->plugin_name, 'bp_openai_pdf_chat_model', array(
+        register_setting($this->plugin_name, 'bb_openai_pdf_chat_api_key');
+        register_setting($this->plugin_name, 'bb_openai_pdf_chat_model', array(
             'default' => 'gpt-4o-mini'
         ));
-        register_setting($this->plugin_name, 'bp_openai_pdf_chat_max_tokens', array(
+        register_setting($this->plugin_name, 'bb_openai_pdf_chat_max_tokens', array(
             'default' => 500
         ));
     }

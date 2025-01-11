@@ -1,0 +1,18 @@
+.website-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.website-url {
+    flex: 1;
+}
+
+.add-website {
+    margin-bottom: 10px !important;
+}
+
+#website-repeater {
+    margin-bottom: 15px;
+}

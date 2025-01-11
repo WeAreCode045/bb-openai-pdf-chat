@@ -1,10 +1,10 @@
 <?php
-class BP_OpenAI_PDF_Chat_API {
+class BB_OpenAI_PDF_Chat_API {
     private $api_key;
     private $timeout = 60; // Increased timeout for longer documents
 
     public function __construct() {
-        $this->api_key = get_option('bp_openai_pdf_chat_api_key');
+        $this->api_key = get_option('bb_openai_pdf_chat_api_key');
     }
 
     public function analyze($text) {
@@ -17,10 +17,7 @@ class BP_OpenAI_PDF_Chat_API {
             throw new Exception('OpenAI API key not configured');
         }
 
-        $system_prompt = "You are a helpful assistant that answers questions based on the provided documents. When answering:
-1. Use only the information from the provided document content
-2. If the answer isn't in the documents, say so clearly
-3. Do not make assumptions or add information not present in the documents";
+        $system_prompt = "You are a helpful assistant that answers questions based PDF Documents";
         
         $response = wp_remote_post('https://api.openai.com/v1/chat/completions', array(
             'timeout' => $this->timeout,
@@ -29,7 +26,7 @@ class BP_OpenAI_PDF_Chat_API {
                 'Content-Type' => 'application/json',
             ),
             'body' => json_encode(array(
-                'model' => get_option('bp_openai_pdf_chat_model', 'gpt-4o-mini'),
+                'model' => get_option('bb_openai_pdf_chat_model', 'gpt-4o-mini'),
                 'messages' => array(
                     array(
                         'role' => 'system',
@@ -40,7 +37,7 @@ class BP_OpenAI_PDF_Chat_API {
                         'content' => "Context:\n\n{$context}\n\nQuestion: {$question}"
                     )
                 ),
-                'max_tokens' => intval(get_option('bp_openai_pdf_chat_max_tokens', 1000)),
+                'max_tokens' => intval(get_option('bb_openai_pdf_chat_max_tokens', 1000)),
                 'temperature' => 0.7
             ))
         ));

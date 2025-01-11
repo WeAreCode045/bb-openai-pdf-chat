@@ -2,7 +2,7 @@
 /**
  * Register all actions and filters for the plugin
  */
-class BP_OpenAI_PDF_Chat_Loader {
+class BB_OpenAI_PDF_Chat_Loader {
     protected $actions;
     protected $filters;
 

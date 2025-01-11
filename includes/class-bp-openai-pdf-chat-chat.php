@@ -1,15 +1,15 @@
 <?php
-class BP_OpenAI_PDF_Chat_Chat {
+class BB_OpenAI_PDF_Chat_Chat {
     private $api;
     private $file_admin;
 
     public function __construct() {
-        $this->api = new BP_OpenAI_PDF_Chat_API();
-        $this->file_admin = new BP_OpenAI_PDF_Chat_File_Admin();
+        $this->api = new BB_OpenAI_PDF_Chat_API();
+        $this->file_admin = new BB_OpenAI_PDF_Chat_File_Admin();
     }
 
     public function chat() {
-        check_ajax_referer('bp_openai_pdf_chat', 'nonce');
+        check_ajax_referer('bb_openai_pdf_chat', 'nonce');
 
         $document_ids = isset($_POST['document_ids']) ? array_map('intval', $_POST['document_ids']) : array();
         $question = isset($_POST['question']) ? sanitize_text_field($_POST['question']) : '';
@@ -46,7 +46,7 @@ class BP_OpenAI_PDF_Chat_Chat {
     }
 
     public function save_history() {
-        check_ajax_referer('bp_openai_pdf_chat', 'nonce');
+        check_ajax_referer('bb_openai_pdf_chat', 'nonce');
 
         if (!isset($_POST['group_id']) || !isset($_POST['chat_data'])) {
             wp_send_json_error('Missing required parameters');
@@ -82,7 +82,7 @@ class BP_OpenAI_PDF_Chat_Chat {
     }
 
     public function get_history() {
-        check_ajax_referer('bp_openai_pdf_chat', 'nonce');
+        check_ajax_referer('bb_openai_pdf_chat', 'nonce');
 
         if (!isset($_POST['group_id'])) {
             wp_send_json_error('Missing group ID');
