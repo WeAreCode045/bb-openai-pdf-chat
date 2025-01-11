@@ -18,13 +18,13 @@ class BB_OpenAI_PDF_Chat {
     }
 
     private function load_dependencies() {
-        require_once BB_OPENAI_PDF_CHAT_PLUGIN_DIR . 'includes/class-bp-openai-pdf-chat-loader.php';
-        require_once BB_OPENAI_PDF_CHAT_PLUGIN_DIR . 'includes/class-bp-openai-pdf-chat-admin.php';
-        require_once BB_OPENAI_PDF_CHAT_PLUGIN_DIR . 'includes/class-bp-openai-pdf-chat-public.php';
-        require_once BB_OPENAI_PDF_CHAT_PLUGIN_DIR . 'includes/class-bp-openai-pdf-chat-document.php';
-        require_once BP_OPENAI_PDF_CHAT_PLUGIN_DIR . 'includes/class-bp-openai-pdf-chat-api.php';
-        require_once BB_OPENAI_PDF_CHAT_PLUGIN_DIR . 'includes/class-bp-openai-pdf-chat-chat.php';
-        require_once BP_OPENAI_PDF_CHAT_PLUGIN_DIR . 'includes/class-bp-openai-pdf-chat-file-admin.php';
+        require_once BB_OPENAI_PDF_CHAT_PLUGIN_DIR . 'includes/class-bb-openai-pdf-chat-loader.php';
+        require_once BB_OPENAI_PDF_CHAT_PLUGIN_DIR . 'includes/class-bb-openai-pdf-chat-admin.php';
+        require_once BB_OPENAI_PDF_CHAT_PLUGIN_DIR . 'includes/class-bb-openai-pdf-chat-public.php';
+        require_once BB_OPENAI_PDF_CHAT_PLUGIN_DIR . 'includes/class-bb-openai-pdf-chat-document.php';
+        require_once BB_OPENAI_PDF_CHAT_PLUGIN_DIR . 'includes/class-bb-openai-pdf-chat-api.php';
+        require_once BB_OPENAI_PDF_CHAT_PLUGIN_DIR . 'includes/class-bb-openai-pdf-chat-chat.php';
+        require_once BB_OPENAI_PDF_CHAT_PLUGIN_DIR . 'includes/class-bb-openai-pdf-chat-file-admin.php';
 
         $this->loader = new BB_OpenAI_PDF_Chat_Loader();
     }

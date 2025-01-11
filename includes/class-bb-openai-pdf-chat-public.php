@@ -18,7 +18,7 @@ class BB_OpenAI_PDF_Chat_Public {
 
         wp_enqueue_style(
             $this->plugin_name,
-            plugin_dir_url(dirname(__FILE__)) . 'css/style.css',
+            plugin_dir_url(dirname(__FILE__)) . '/assets/css/style.css',
             array(),
             $this->version
         );
@@ -39,7 +39,7 @@ class BB_OpenAI_PDF_Chat_Public {
 
         wp_enqueue_script(
             $this->plugin_name,
-            plugin_dir_url(dirname(__FILE__)) . 'js/chat.js',
+            plugin_dir_url(dirname(__FILE__)) . 'assets/js/chat.js',
             array('jquery', 'pdf-js'),
             $this->version,
             true
@@ -68,7 +68,7 @@ class BB_OpenAI_PDF_Chat_Public {
     }
 
     public function display_chat_page() {
-        add_action('bb_template_content', array($this, 'get_chat_template'));
+        add_action('bp_template_content', array($this, 'get_chat_template'));
         bp_core_load_template('buddypress/members/single/plugins');
     }
 

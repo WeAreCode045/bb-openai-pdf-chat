@@ -5,6 +5,7 @@
  * Author: Code045
  * License: GPL v2 or later
  * Requires at least: 5.8
+ * Version: 2.0.0
  * Requires PHP: 8.1
  */
 
@@ -12,9 +13,9 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('bb_OPENAI_PDF_CHAT_VERSION', '1.0.0');
-define('bb_OPENAI_PDF_CHAT_DB_VERSION', '1.0.0');
-define('bb_OPENAI_PDF_CHAT_PLUGIN_DIR', plugin_dir_path(__FILE__));
+define('BB_OPENAI_PDF_CHAT_VERSION', '2.0.0');
+define('BB_OPENAI_PDF_CHAT_DB_VERSION', '1.1.0');
+define('BB_OPENAI_PDF_CHAT_PLUGIN_DIR', plugin_dir_path(__FILE__));
 
 // Load custom autoloader
 require_once BB_OPENAI_PDF_CHAT_PLUGIN_DIR . 'includes/autoload.php';
