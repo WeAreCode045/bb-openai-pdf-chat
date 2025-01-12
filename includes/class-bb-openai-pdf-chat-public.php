@@ -18,7 +18,7 @@ class BB_OpenAI_PDF_Chat_Public {
 
         wp_enqueue_style(
             $this->plugin_name,
-            plugin_dir_url(dirname(__FILE__)) . '/assets/css/style.css',
+            plugin_dir_url(dirname(__FILE__)) . 'assets/css/style.css',
             array(),
             $this->version
         );
